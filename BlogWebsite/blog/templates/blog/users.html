@@ -1,0 +1,31 @@
+{% extends 'blog/master.html' %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1>Users</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>
+          {{ user.username }}
+        </td>
+        <td>
+          {{ user.email }}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<!-- {% for user in users %}
+        <li>{{ user.username }} - {{ user.email }}</li>
+    {% endfor %} -->
+
+{% endblock %}

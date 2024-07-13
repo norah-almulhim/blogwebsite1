@@ -1,0 +1,36 @@
+{% extends 'blog/master.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+  <h1>Blogs</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Date Published</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for blog in blogs %}
+      <tr>
+        <td><a href="{% url 'blogdetails' blog.id %}">
+            {{ blog.title }}</a></td>
+        <td>
+          {{ blog.category.name }}
+        </td>
+        <td>
+          {{ blog.date_published }}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- {% for blog in blogs %}
+  <li><a href="{% url 'blogdetails' blog.id %}">
+      {{ blog.title }}</a></li>
+  {% endfor %} -->
+{% endblock %}

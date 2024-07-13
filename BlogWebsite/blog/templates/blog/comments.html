@@ -1,0 +1,43 @@
+{% extends 'blog/master.html' %}
+
+{% block content %}
+
+  <div class="container mt-4">
+    <h1>Comments</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Post</th>
+          <th>User</th>
+          <th>Content</th>
+          <th>Date Posted</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for comment in comments %}
+        <tr>
+          <td>
+            {{ comment.post.title }}
+          </td>
+          <td>
+            {{ comment.user.username }}
+          </td>
+          <td>
+            {{ comment.content }}
+          </td>
+          <td>
+            {{ comment.date_posted }}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <!-- 
+  {% for comment in comments %}
+  <li>Blog ID:
+    {{ comment.post.id }} -
+    {{ comment.content }}
+  </li>
+  {% endfor %} -->
+{% endblock %}
